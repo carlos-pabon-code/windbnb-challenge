@@ -1,3 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Mulish:wght@400;700;800&display=swap");
+
+:root {
+  /* Colors */
+  --black: #333333;
+  --gray: #bdbdbd;
+  --orange: #eb5757;
+  --black2: #4f4f4f;
+  --gray2: #828282;
+  --black2: #4f4f4f;
+  --white: #ffffff;
+  --white2: #f2f2f2;
+  /* Fonts */
+  --title: "Montserrat", sans-serif;
+  --paragraph: "Mulish", sans-serif;
+}
+
 * {
   margin: 0;
   padding: 0;
