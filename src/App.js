@@ -1,7 +1,9 @@
+import Home from "./pages/Home";
+
 function App() {
   return (
-    <div>
-      <h1>WindBnB challenge</h1>
+    <div id="app">
+      <Home />
     </div>
   );
 }
