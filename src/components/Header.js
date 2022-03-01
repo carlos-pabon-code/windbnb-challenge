@@ -3,6 +3,7 @@ import LogoWind from "../logo.png";
 import SearchBar from "./SearchBar";
 
 const HeaderCtn = styled.header`
+  margin-top: 1rem;
   padding: 1rem;
   width: 100%;
   height: 80px;
@@ -10,17 +11,25 @@ const HeaderCtn = styled.header`
     padding: 5rem 0rem;
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    gap: 4rem;
-  }
-  @media (min-width: 768px) {
-    gap: 20rem;
+    justify-content: space-between;
+    /* gap: 4rem; */
+    margin-top: 0px;
   }
 `;
 
 const Logo = styled.img`
   width: 100px;
   margin-bottom: 1rem;
+  @media (min-width: 600px) {
+    width: 120px;
+  }
+  @media (min-width: 768px) {
+    width: 150px;
+    margin: 0px 3rem;
+  }
+  @media (min-width: 1440px) {
+    margin: 0px 8rem;
+  }
 `;
 
 export default function Header() {

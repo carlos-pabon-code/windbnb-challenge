@@ -7,7 +7,10 @@ const SearchCtn = styled.section`
   justify-content: center;
   margin-top: 2rem;
   @media (min-width: 600px) {
-    margin-top: 0px;
+    margin: 0px 3rem;
+  }
+  @media (min-width: 1440px) {
+    margin: 0px 8rem;
   }
 `;
 
