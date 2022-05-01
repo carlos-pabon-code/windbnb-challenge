@@ -1,11 +1,14 @@
 import styled from "styled-components";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
+import { useState } from "react";
+import SearchModal from "./SearchModal";
 
 const SearchCtn = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 2rem;
+
   @media (min-width: 600px) {
     margin: 0px 3rem;
   }
@@ -65,7 +68,7 @@ const Input = styled.input`
     padding: 0 0.4rem;
   }
   &#guests {
-    width: 90px;
+    width: 100px;
     padding: 0 0.2rem;
   }
   &::placeholder {
@@ -75,23 +78,56 @@ const Input = styled.input`
   }
 `;
 
-export default function SearchBar() {
+const locations = [
+  { city: "Helsinki", country: "Finland" },
+  { city: "Tokyo", country: "Japan" },
+  { city: "Ginebra", country: "Switzerland" },
+];
+
+export default function SearchBar({ form, setForm, setSearch }) {
+  // useState to toggle the modal on input clicked
+  const [openModal, setOpenModal] = useState(false);
+
+  const handleChange = (event) => {
+    setForm({ ...form, [event.target.name]: event.target.value });
+  };
   return (
-    <SearchCtn>
-      <SearchCtnLeft>
-        <Input
-          id="location"
-          name="location"
-          placeholder="Add location"
-          type="text"
+    <form>
+      <SearchCtn>
+        <SearchCtnLeft>
+          <Input
+            id="location"
+            name="location"
+            placeholder="Add location"
+            type="text"
+            value={form.location}
+            onChange={handleChange}
+            required
+          />
+        </SearchCtnLeft>
+        <SearchCtnCenter>
+          <Input
+            id="guests"
+            name="guests"
+            placeholder="Add guests"
+            type="number"
+            value={form.guests}
+            onChange={handleChange}
+            required
+          />
+        </SearchCtnCenter>
+        <SearchCtnRight onClick={() => setOpenModal(true)}>
+          <SearchOutlinedIcon />
+        </SearchCtnRight>
+        <SearchModal
+          setOpenModal={setOpenModal}
+          openModal={openModal}
+          form={form}
+          setForm={setForm}
+          locations={locations}
+          setSearch={setSearch}
         />
-      </SearchCtnLeft>
-      <SearchCtnCenter>
-        <Input id="guests" name="guests" placeholder="Add guests" type="text" />
-      </SearchCtnCenter>
-      <SearchCtnRight>
-        <SearchOutlinedIcon />
-      </SearchCtnRight>
-    </SearchCtn>
+      </SearchCtn>
+    </form>
   );
 }

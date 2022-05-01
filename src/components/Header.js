@@ -32,13 +32,13 @@ const Logo = styled.img`
   }
 `;
 
-export default function Header() {
+export default function Header({ form, setForm, setSearch }) {
   return (
     <HeaderCtn>
       <figure>
         <Logo alt="logo" src={LogoWind} />
       </figure>
-      <SearchBar />
+      <SearchBar form={form} setForm={setForm} setSearch={setSearch} />
     </HeaderCtn>
   );
 }
